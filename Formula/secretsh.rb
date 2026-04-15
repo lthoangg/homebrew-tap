@@ -7,20 +7,20 @@ class Secretsh < Formula
   on_arm do
     if OS.mac?
       url "https://github.com/lthoangg/secretsh/releases/download/v0.1.1/secretsh-aarch64-apple-darwin.tar.gz"
-      sha256 "c75a967581b9ebf0a34e4d7294bf3e579a6e29cf0ae346f63f8e747aec4e63cd"
+      sha256 "455a94d87262ab331a82304064b9e7ff2b016df4d2e3ac3c7fadd798a5f5c3f8"
     else
       url "https://github.com/lthoangg/secretsh/releases/download/v0.1.1/secretsh-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "a69b12ac587b2c41e6d8238acf5c603a0bee24cb385aeb1a1beeab1fead3ad35"
+      sha256 "570e2b7fb1e1e7d11317b03205ff0ffc0b1d24f6a2c41be945c04b565de708aa"
     end
   end
 
   on_intel do
     if OS.mac?
       url "https://github.com/lthoangg/secretsh/releases/download/v0.1.1/secretsh-x86_64-apple-darwin.tar.gz"
-      sha256 "958316b3116a6d466fdfc7db99a0c0259b8623e6f86cfa6c75ec1e715aa99210"
+      sha256 "c19098b085bb628b3a8a406d574e2e63f75b2cf5482c2949ea960e87b147c41b"
     else
       url "https://github.com/lthoangg/secretsh/releases/download/v0.1.1/secretsh-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "705be1d35e6aced02be326cc96d73b2a91d9f6d24868cea90e5b41f99635e7be"
+      sha256 "98411d376a25bf9cc6b2e91535870b5f025b5ae5365ecce3ce50143b3a51f1de"
     end
   end
 
