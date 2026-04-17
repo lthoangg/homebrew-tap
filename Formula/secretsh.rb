@@ -1,26 +1,26 @@
 class Secretsh < Formula
   desc "Secure subprocess secret injection for AI agents"
   homepage "https://github.com/lthoangg/secretsh"
-  version "0.2.0"
+  version "0.2.1"
   license "MIT"
 
   on_arm do
     if OS.mac?
-      url "https://github.com/lthoangg/secretsh/releases/download/v0.2.0/secretsh-aarch64-apple-darwin.tar.gz"
-      sha256 "14d496e85debf54db9474b09c4e107b1c9d2a6f81e9233710d6166faab27fe71"
+      url "https://github.com/lthoangg/secretsh/releases/download/v0.2.1/secretsh-aarch64-apple-darwin.tar.gz"
+      sha256 "824992ceee00368849fa242c38a36faff985d384fa138d678fd56b808ebace91"
     else
-      url "https://github.com/lthoangg/secretsh/releases/download/v0.2.0/secretsh-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "24e58af73508105a787a22c057c89dd3be3afe2c3459f7a9d19bf75170be1124"
+      url "https://github.com/lthoangg/secretsh/releases/download/v0.2.1/secretsh-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "ba20452f42c3fd424105644ea43b1b6191df3f4708b1b6577c81f50c71b33c27"
     end
   end
 
   on_intel do
     if OS.mac?
-      url "https://github.com/lthoangg/secretsh/releases/download/v0.2.0/secretsh-x86_64-apple-darwin.tar.gz"
-      sha256 "18f1debaf0cba585cf563414d6a88603d0fa40abfd319c9314ec2a1817785601"
+      url "https://github.com/lthoangg/secretsh/releases/download/v0.2.1/secretsh-x86_64-apple-darwin.tar.gz"
+      sha256 "02be3b26d1d6fa2ec320037a98a67037f9cecb12280682614602ceb6b7c903b2"
     else
-      url "https://github.com/lthoangg/secretsh/releases/download/v0.2.0/secretsh-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "cf1cbcf6360d63a5b601d191932dd17e00f0a0ca1925e7941f21fb8ec5aa279c"
+      url "https://github.com/lthoangg/secretsh/releases/download/v0.2.1/secretsh-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "fcdb88045bdd3ba1de47dbbb4ddccff59f52a9c50a7c49fd9dacf9b189d13241"
     end
   end
 
