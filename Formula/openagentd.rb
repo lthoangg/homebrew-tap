@@ -1,6 +1,4 @@
 class Openagentd < Formula
-  include Language::Python::Virtualenv
-
   desc "On-machine multi-agent AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
   url "https://files.pythonhosted.org/packages/source/o/openagentd/openagentd-0.1.2.tar.gz"
@@ -10,8 +8,9 @@ class Openagentd < Formula
   depends_on "python@3.14"
 
   def install
-    python = Formula["python@3.14"].opt_bin/"python3.14"
-    venv = virtualenv_create(libexec, python)
+    python3 = Formula["python@3.14"].opt_bin/"python3.14"
+    system python3, "-m", "venv", libexec
+    system libexec/"bin/pip", "install", "--no-cache-dir", "--upgrade", "pip"
     system libexec/"bin/pip", "install", "--no-cache-dir", buildpath
     bin.install_symlink libexec/"bin/openagentd"
   end
