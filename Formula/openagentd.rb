@@ -10,8 +10,8 @@ class Openagentd < Formula
   depends_on "python@3.14"
 
   def install
-    python = Formula["python@3.14"].opt_bin/"python3.14"
-    venv = virtualenv_create(libexec, python)
+    python3 = Formula["python@3.14"].opt_bin/"python3.14"
+    system python3, "-m", "venv", libexec
     system libexec/"bin/pip", "install", "--no-cache-dir", buildpath
     bin.install_symlink libexec/"bin/openagentd"
   end
