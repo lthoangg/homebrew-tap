@@ -1,4 +1,6 @@
 class Openagentd < Formula
+  include Language::Python::Virtualenv
+
   desc "On-machine multi-agent AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
   url "https://files.pythonhosted.org/packages/source/o/openagentd/openagentd-0.1.0.tar.gz"
