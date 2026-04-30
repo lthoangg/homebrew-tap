@@ -3,15 +3,15 @@ class Openagentd < Formula
 
   desc "On-machine multi-agent AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
-  url "https://files.pythonhosted.org/packages/source/o/openagentd/openagentd-0.1.0.tar.gz"
-  sha256 "0c242ce01d7672bc783a2cc4df1f8d15979b469f47069fbf86ba872b8118133a"
+  url "https://files.pythonhosted.org/packages/source/o/openagentd/openagentd-0.1.2.tar.gz"
+  sha256 "1ea468a169748fe59e3136b4d6effcd5c4a314513251a9c2a406b63a30b228bb"
   license "Apache-2.0"
 
   depends_on "python@3.14"
 
   def install
-    python3 = Formula["python@3.14"].opt_bin/"python3.14"
-    system python3, "-m", "venv", libexec
+    python = Formula["python@3.14"].opt_bin/"python3.14"
+    venv = virtualenv_create(libexec, python)
     system libexec/"bin/pip", "install", "--no-cache-dir", buildpath
     bin.install_symlink libexec/"bin/openagentd"
   end
