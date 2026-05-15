@@ -1,8 +1,8 @@
 class Openagentd < Formula
   desc "On-machine multi-agent AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
-  url "https://files.pythonhosted.org/packages/source/o/openagentd/openagentd-0.6.0.tar.gz"
-  sha256 "40f1c8dfb57f071befe497ce861ce54f01555c15485460ecc95371139586c592"
+  url "https://files.pythonhosted.org/packages/source/o/openagentd/openagentd-1.0.0.tar.gz"
+  sha256 "1970af5e7503d0e84685030356a6b59a88bcb02afc62cf967d55535f1942a8d1"
   license "Apache-2.0"
 
   depends_on "python@3.14"
@@ -21,11 +21,11 @@ class Openagentd < Formula
   def caveats
     <<~EOS
       This formula installs the base package only. Optional extras are not
-      supported by Homebrew. To enable voice input (local Whisper transcription):
+      supported by Homebrew. To install with every optional extra:
 
-        uv tool install "openagentd[voice-local]"
+        uv tool install "openagentd[full]"
         # or
-        pip install "openagentd[voice-local]"
+        pip install "openagentd[full]"
     EOS
   end
 
