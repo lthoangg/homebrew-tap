@@ -1,6 +1,6 @@
 cask "openagentd" do
   version "1.0.7"
-  sha256 "af01688b76de76de0b4f1378599f37b1e18fa354f553ea092251b477ceae4cb1"
+  sha256 "93237dcc6cd50be4967fde7b114473507db9b04cae752abf9b2f1d7bbc7f2b2b"
 
   url "https://github.com/lthoangg/openagentd/releases/download/v1.0.7-desktop/OpenAgentd_1.0.7_aarch64.dmg"
   name "OpenAgentd"
