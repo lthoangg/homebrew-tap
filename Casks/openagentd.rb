@@ -1,8 +1,8 @@
 cask "openagentd" do
-  version "1.0.6"
-  sha256 "f3fb04b9508dfd91adcba9399b7a5e23589b7cb05ecf17dc4650d327c4160ef2"
+  version "1.0.7"
+  sha256 "af01688b76de76de0b4f1378599f37b1e18fa354f553ea092251b477ceae4cb1"
 
-  url "https://github.com/lthoangg/openagentd/releases/download/v1.0.6-desktop/OpenAgentd_1.0.6_aarch64.dmg"
+  url "https://github.com/lthoangg/openagentd/releases/download/v1.0.7-desktop/OpenAgentd_1.0.7_aarch64.dmg"
   name "OpenAgentd"
   desc "On-machine multi-agent AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
@@ -27,20 +27,40 @@ cask "openagentd" do
   # first launch macOS would otherwise reject it with the
   # "OpenAgentd.app" is damaged error. We replicate the
   # exact workaround from desktop/scripts/install.sh:
-  # strip the quarantine xattr, ad-hoc sign the bundle, done.
+  # strip the quarantine xattr, ad-hoc re-sign with the
+  # bundled entitlements, done.
+  #
+  # The --entitlements flag is critical. Tauri's build step
+  # signs the bundle with our entitlements.plist embedded — but
+  # codesign --force --deep --sign - *without*
+  # --entitlements strips them, leaving Hardened Runtime on
+  # with no exceptions. That silently breaks WebView↔Rust IPC
+  # (startDragging(), toggleMaximize(), etc.), the
+  # sidecar spawn, and any feature that touches
+  # allow-unsigned-executable-memory,
+  # disable-library-validation, network.client/server,
+  # or device.audio-input.
+  #
+  # We ship entitlements.plist into Contents/Resources/
+  # via tauri.conf.json resources so this re-sign can pick
+  # it up without bundling it separately.
   #
   # postflight runs once per brew install --cask /
   # brew upgrade --cask, so the dance happens automatically
   # on every version bump.
   postflight do
     app_path = "#{appdir}/OpenAgentd.app"
+    entitlements = "#{app_path}/Contents/Resources/entitlements.plist"
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", app_path],
                    must_succeed: false
+    codesign_args = ["--force", "--deep", "--sign", "-",
+                     "--options", "runtime",
+                     "--timestamp=none"]
+    codesign_args += ["--entitlements", entitlements] if File.exist?(entitlements)
+    codesign_args << app_path
     system_command "/usr/bin/codesign",
-                   args: ["--force", "--deep", "--sign", "-",
-                          "--options", "runtime",
-                          "--timestamp=none", app_path],
+                   args: codesign_args,
                    must_succeed: false
   end
 
