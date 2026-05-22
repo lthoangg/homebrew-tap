@@ -1,8 +1,8 @@
 cask "openagentd" do
-  version "1.16.0"
-  sha256 "be2ca098a906f9e16fe8520213b7dcecb1e3b9c018ce96f68c27e4eaefa5ab14"
+  version "1.17.0"
+  sha256 "c40b428446ea1d3adebd996d6c6d23e6a73525521322d4a50581068bfe6f6c8d"
 
-  url "https://github.com/lthoangg/openagentd/releases/download/v1.16.0/OpenAgentd_1.16.0_aarch64.dmg"
+  url "https://github.com/lthoangg/openagentd/releases/download/v1.17.0/OpenAgentd_1.17.0_aarch64.dmg"
   name "OpenAgentd"
   desc "On-machine multi-agent AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
