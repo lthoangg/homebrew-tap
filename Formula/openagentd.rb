@@ -1,8 +1,8 @@
 class Openagentd < Formula
   desc "On-machine multi-agent AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
-  url "https://files.pythonhosted.org/packages/source/o/openagentd/openagentd-1.21.0.tar.gz"
-  sha256 "f1f712ae15b4c0ee0492409ecf095fd8b00cacb7d4a4cc9bb04f8d3d48306a18"
+  url "https://files.pythonhosted.org/packages/source/o/openagentd/openagentd-1.22.0.tar.gz"
+  sha256 "81865d6e5cd68922967d037e628402abb01a519f120dc6d45cd1ce7d5d64d0b0"
   license "Apache-2.0"
 
   depends_on "python@3.14"
