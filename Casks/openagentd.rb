@@ -1,8 +1,8 @@
 cask "openagentd" do
-  version "1.51.1"
-  sha256 "f2c88342e9ec68e5794212722beced834633a89a8b927ac8433ada251167d5f9"
+  version "1.51.2"
+  sha256 "a0ed377431b6f21441e0e9cf54b760059cb929fabc8a8f1dcad17bf9664935f9"
 
-  url "https://github.com/lthoangg/openagentd/releases/download/v1.51.1/OpenAgentd_1.51.1_aarch64.dmg"
+  url "https://github.com/lthoangg/openagentd/releases/download/v1.51.2/OpenAgentd_1.51.2_aarch64.dmg"
   name "OpenAgentd"
   desc "On-machine multi-agent AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
@@ -11,7 +11,7 @@ cask "openagentd" do
   # Intel .dmg today; Intel Mac users should install the CLI
   # Formula instead (brew install openagentd).
   depends_on arch: :arm64
-  depends_on macos: :big_sur
+  depends_on macos: ">= :big_sur"
 
   livecheck do
     url :url
