@@ -11,7 +11,7 @@ cask "openagentd" do
   # Intel .dmg today; Intel Mac users should install the CLI
   # Formula instead (brew install openagentd).
   depends_on arch: :arm64
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   livecheck do
     url :url
