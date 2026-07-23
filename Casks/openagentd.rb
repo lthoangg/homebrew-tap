@@ -1,8 +1,8 @@
 cask "openagentd" do
-  version "1.116.0"
-  sha256 "444c02ef1d2a90b9de9fdf8cb5bebaa9e46e95bf89a44343edfa7f10bccc0a66"
+  version "1.117.0"
+  sha256 "af60b9ed9d51e4776abab589a1bbe304ebc57314e70a442e9bc19f630fbc3341"
 
-  url "https://github.com/lthoangg/openagentd/releases/download/v1.116.0/OpenAgentd_1.116.0_aarch64.dmg"
+  url "https://github.com/lthoangg/openagentd/releases/download/v1.117.0/OpenAgentd_1.117.0_aarch64.dmg"
   name "OpenAgentd"
   desc "On-machine multi-agent AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
@@ -60,6 +60,7 @@ cask "openagentd" do
                    must_succeed: false
     codesign_args = ["--force", "--deep", "--sign", "-",
                      "--options", "runtime",
+                     "-r=designated => identifier \"com.openagentd.desktop\"",
                      "--timestamp=none"]
     codesign_args += ["--entitlements", entitlements] if File.exist?(entitlements)
     codesign_args << app_path
