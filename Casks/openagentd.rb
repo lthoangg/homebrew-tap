@@ -1,8 +1,8 @@
 cask "openagentd" do
-  version "1.120.1"
-  sha256 "2a663b334de6f199ba08efc490073f6161547b0db8dd2de38077d10f65231541"
+  version "1.120.2"
+  sha256 "23a8be119c4cbbcfa9078fbed306a86c587790696fcb2de3e3c2d5bf2ff18e9b"
 
-  url "https://github.com/lthoangg/openagentd/releases/download/v1.120.1/OpenAgentd_1.120.1_aarch64.dmg"
+  url "https://github.com/lthoangg/openagentd/releases/download/v1.120.2/OpenAgentd_1.120.2_aarch64.dmg"
   name "OpenAgentd"
   desc "On-machine multi-agent AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
@@ -93,8 +93,13 @@ cask "openagentd" do
       FileUtils.rm_rf(tmp_dir)
     end
 
+    # The identifier-only designated requirement is applied on every
+    # signing path (not just ad-hoc): the default cert-pinned
+    # requirement of a local self-signed identity changes whenever
+    # the cert is regenerated, invalidating keychain "Always Allow"
+    # ACLs and TCC grants on the next upgrade.
     codesign_args = ["--force", "--deep", "--sign", signing_id, "--options", "runtime"]
-    codesign_args += ["-r=designated => identifier \"com.openagentd.desktop\""] if signing_id == "-"
+    codesign_args += ["-r=designated => identifier \"com.openagentd.desktop\""]
     codesign_args += ["--timestamp=none"] if signing_id == "-"
     codesign_args += ["--entitlements", entitlements] if File.exist?(entitlements)
     codesign_args << app_path
