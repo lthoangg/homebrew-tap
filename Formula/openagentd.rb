@@ -1,8 +1,8 @@
 class Openagentd < Formula
   desc "On-machine multi-agent AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
-  url "https://files.pythonhosted.org/packages/f4/e3/7b41ec884ec0c37514ff542cd7359d5e5b185781aecc99abc65e57c857e5/openagentd-1.133.0.tar.gz"
-  sha256 "24cdea85d955d0e5b1ca23236a1861e3af08883edc147ba31abfdc38d5702594"
+  url "https://files.pythonhosted.org/packages/19/cf/f0303c62354d77d834d4c9047ee8fd2d9477d4de82321177fc9ed0119427/openagentd-2.0.0.tar.gz"
+  sha256 "ce0968925be1738470c788d60499e0a54266db96a7c95897f0c3eb22968ac7bd"
   license "Apache-2.0"
 
   depends_on "python@3.14"
@@ -21,12 +21,8 @@ class Openagentd < Formula
 
   def caveats
     <<~EOS
-      This formula installs the base package only. Optional extras are not
-      supported by Homebrew. To install with every optional extra:
-
-        uv tool install "openagentd[full]"
-        # or
-        pip install "openagentd[full]"
+      Run  to get started, or see
+      https://github.com/lthoangg/OpenAgentd for documentation.
     EOS
   end
 
