@@ -1,8 +1,8 @@
 cask "openagentd" do
-  version "2.26.0"
-  sha256 "7b54a8eea89e88da6307a9e77a296516df6bffea79008d45b11ca4333e1b301f"
+  version "3.0.0"
+  sha256 "cddf3819481b7169acbb558205ca9a06f004fac151234962e6da309c0a6e1ebc"
 
-  url "https://github.com/lthoangg/openagentd/releases/download/v2.26.0/OpenAgentd_2.26.0_aarch64.dmg"
+  url "https://github.com/lthoangg/openagentd/releases/download/v3.0.0/OpenAgentd_3.0.0_aarch64.dmg"
   name "OpenAgentd"
   desc "On-machine AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
@@ -124,8 +124,7 @@ cask "openagentd" do
     the app in Finder and choose "Open" once.
 
     Apple Silicon only. Intel Mac users: install the CLI with
-    "brew install openagentd" instead, and open the cockpit at
-    http://localhost:4082.
+    "brew install openagentd" instead.
 
     Uninstall keeps your data. brew uninstall --cask
     openagentd removes the app only; agents, sessions, and
