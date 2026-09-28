@@ -1,32 +1,46 @@
 class Openagentd < Formula
   desc "On-machine AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
-  url "https://files.pythonhosted.org/packages/6d/ad/445dc073f051f502294cb962a6fe851b1daad4154473e2e13082ef7d2ea5/openagentd-2.26.0.tar.gz"
-  sha256 "2694701a54afcc6c624e8ee4c01fd234b2a528d2cee2fdcc31baf13dabfc6c74"
+  version "3.0.0"
   license "Apache-2.0"
 
-  depends_on "python@3.14"
+  on_macos do
+    on_arm do
+      url "https://github.com/lthoangg/openagentd/releases/download/v3.0.0/openagentd-3.0.0-aarch64-apple-darwin.tar.gz"
+      sha256 "fba4555742293985c92f07e1006358cfabf69558fbb2db5998452361b84f34db"
+    end
+    on_intel do
+      url "https://github.com/lthoangg/openagentd/releases/download/v3.0.0/openagentd-3.0.0-x86_64-apple-darwin.tar.gz"
+      sha256 "6e81465e37dd7d0521135d78f656d950b30a238600333f5dfde0c82fceda98a3"
+    end
+  end
+
+  on_linux do
+    on_arm do
+      url "https://github.com/lthoangg/openagentd/releases/download/v3.0.0/openagentd-3.0.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "ba827826f8a3a517b9fdf258b89975b6ff1c5930ba16112f0004434e022d1494"
+    end
+    on_intel do
+      url "https://github.com/lthoangg/openagentd/releases/download/v3.0.0/openagentd-3.0.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "41e8ed0ae24ef1aea036f6e7999f3df247b5ebd64dd6aa0d8a90063b723c1739"
+    end
+  end
 
   def install
-    python3 = Formula["python@3.14"].opt_bin/"python3.14"
-    system python3, "-m", "venv", libexec
-    system libexec/"bin/pip", "install", "--no-cache-dir", "--upgrade", "pip"
-    # Install from prebuilt wheels (including cryptography) so no Rust
-    # toolchain is required on the user's machine. Homebrew may emit a
-    # cosmetic "Failed changing dylib ID" warning for cryptography,
-    # which is harmless and does not affect functionality.
-    system libexec/"bin/pip", "install", "--no-cache-dir", buildpath
-    bin.install_symlink libexec/"bin/openagentd"
+    # Every executable at the archive root (openagentd, plus any
+    # future companion binary).
+    Dir["*"].each { |f| bin.install f if File.file?(f) && File.executable?(f) }
   end
 
   def caveats
     <<~EOS
-      Run  to get started, or see
-      https://github.com/lthoangg/OpenAgentd for documentation.
+      Run `openagentd --help` to get started, or see
+      https://github.com/lthoangg/openagentd for documentation.
+      Upgrade with `brew upgrade openagentd` (`openagentd upgrade` does this too).
     EOS
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/openagentd --version")
+    assert_match "openagentd v#{version}", shell_output("#{bin}/openagentd --version")
   end
 end
