@@ -1,28 +1,28 @@
 class Openagentd < Formula
   desc "On-machine AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
-  version "3.2.0"
+  version "3.3.0"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/lthoangg/openagentd/releases/download/v3.2.0/openagentd-3.2.0-aarch64-apple-darwin.tar.gz"
-      sha256 "5cb96629793c9459837a5d2dddfd0ce6dfda82571a0caf56308002ed0fd2e568"
+      url "https://github.com/lthoangg/openagentd/releases/download/v3.3.0/openagentd-3.3.0-aarch64-apple-darwin.tar.gz"
+      sha256 "97987e81cbbff9951eb2b1a902ad900982683fefd7d0702f45856c6d0bb21096"
     end
     on_intel do
-      url "https://github.com/lthoangg/openagentd/releases/download/v3.2.0/openagentd-3.2.0-x86_64-apple-darwin.tar.gz"
-      sha256 "d38be8f531865dbedfe9d5129f7291ccded27441cba9c02578b1e4b92e2a96a2"
+      url "https://github.com/lthoangg/openagentd/releases/download/v3.3.0/openagentd-3.3.0-x86_64-apple-darwin.tar.gz"
+      sha256 "ea8e7583251e77ee31628e582fc6d7c122d148fcf540cc0a34bc94331655e5f4"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/lthoangg/openagentd/releases/download/v3.2.0/openagentd-3.2.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "f5c4c21089db3a76207ce8590652adda8ef7b94c3d41a3320f13c34f249aa8fb"
+      url "https://github.com/lthoangg/openagentd/releases/download/v3.3.0/openagentd-3.3.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "ff835aec5b5d6d4bd38b0a88cc4d8c91db995153a260a0fb4d954262d0e19330"
     end
     on_intel do
-      url "https://github.com/lthoangg/openagentd/releases/download/v3.2.0/openagentd-3.2.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "c1d82d7f7fce72e097cd7e0b7caca5c172b7a73be0e6810e96375871b7076945"
+      url "https://github.com/lthoangg/openagentd/releases/download/v3.3.0/openagentd-3.3.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "1158871d748ac32a3f5937657ecd0897e3b552490e6db884281587291adf8753"
     end
   end
 
