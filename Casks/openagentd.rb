@@ -1,8 +1,8 @@
 cask "openagentd" do
-  version "3.5.0"
-  sha256 "31a3f99f519a3dddd96ebbc145ee3bfcfffb09f97a9474cf8c8f30c45119dadb"
+  version "3.6.0"
+  sha256 "8bf5edfd98b1ea40f4223d8f2ed1f2289eeb73520c052b58761633f8e576f7ba"
 
-  url "https://github.com/lthoangg/openagentd/releases/download/v3.5.0/OpenAgentd_3.5.0_aarch64.dmg"
+  url "https://github.com/lthoangg/openagentd/releases/download/v3.6.0/OpenAgentd_3.6.0_aarch64.dmg"
   name "OpenAgentd"
   desc "On-machine AI assistant with a web cockpit"
   homepage "https://github.com/lthoangg/openagentd"
@@ -117,16 +117,19 @@ cask "openagentd" do
     # requirement of a local self-signed identity changes whenever
     # the cert is regenerated, invalidating keychain "Always Allow"
     # ACLs and TCC grants on the next upgrade.
-    codesign_args = ["--force", "--deep", "--options", "runtime"]
-    codesign_args += ["-r=designated => identifier \"com.openagentd.desktop\""]
-    codesign_args += ["--keychain", keychain] if local
-    codesign_args += ["--sign", signing_id]
-    codesign_args += ["--timestamp=none"] if signing_id == "-"
-    codesign_args += ["--entitlements", entitlements] if File.exist?(entitlements)
-    codesign_args << app_path
-    system_command "/usr/bin/codesign",
-                   args: codesign_args,
-                   must_succeed: false
+    sign = lambda do |id, use_keychain|
+      codesign_args = ["--force", "--deep", "--options", "runtime"]
+      codesign_args += ["-r=designated => identifier \"com.openagentd.desktop\""]
+      codesign_args += ["--keychain", keychain] if use_keychain
+      codesign_args += ["--sign", id]
+      codesign_args += ["--timestamp=none"] if id == "-"
+      codesign_args += ["--entitlements", entitlements] if File.exist?(entitlements)
+      codesign_args << app_path
+      system_command("/usr/bin/codesign", args: codesign_args, must_succeed: false).success?
+    end
+    # An identity codesign cannot use ("no identity found") falls
+    # back to ad hoc, with the same identifier-only requirement.
+    sign.call("-", false) unless sign.call(signing_id, local) || signing_id == "-"
   end
 
   # Intentionally no zap block. brew uninstall --cask
