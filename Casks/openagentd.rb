@@ -1,11 +1,11 @@
 cask "openagentd" do
-  version "3.10.0"
-  sha256 "2f7fbc6c8d41bdeb15259e019204df7bd652928690868a4b2eb0f46e87a14bd0"
+  version "3.11.0"
+  sha256 "476d8038ed38e71e93baf5e00a91a9f4afe775daca014aa576fd5eb89da18ece"
 
-  url "https://github.com/lthoangg/openagentd/releases/download/v3.10.0/OpenAgentd_3.10.0_aarch64.dmg"
+  url "https://github.com/lthoangg/openagentd/releases/download/v3.11.0/OpenAgentd_3.11.0_aarch64.dmg"
   name "OpenAgentd"
-  desc "On-machine AI assistant with a web cockpit"
-  homepage "https://github.com/lthoangg/openagentd"
+  desc "Desktop app for a local coding agent you can watch work"
+  homepage "https://openagentd.dev"
 
   # Apple Silicon only. release-desktop.yml does not build an
   # Intel .dmg today; Intel Mac users should install the CLI
