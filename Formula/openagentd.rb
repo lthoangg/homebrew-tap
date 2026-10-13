@@ -1,19 +1,19 @@
 class Openagentd < Formula
-  desc "On-machine AI assistant with a web cockpit"
-  homepage "https://github.com/lthoangg/openagentd"
-  version "3.10.0"
+  desc "Local coding agent server and CLI"
+  homepage "https://openagentd.dev"
+  version "3.11.0"
   license "Apache-2.0"
 
   on_macos do
     depends_on arch: :arm64
-    url "https://github.com/lthoangg/openagentd/releases/download/v3.10.0/openagentd-3.10.0-aarch64-apple-darwin.tar.gz"
-    sha256 "c5440b25d837ef0f38558b49d3ff80c06dd3a1f9a4ba91f2340b07d604167777"
+    url "https://github.com/lthoangg/openagentd/releases/download/v3.11.0/openagentd-3.11.0-aarch64-apple-darwin.tar.gz"
+    sha256 "a931097011d284172598aeadf72ba66089bacea764b5be67c89b35936e3e66da"
   end
 
   on_linux do
     depends_on arch: :x86_64
-    url "https://github.com/lthoangg/openagentd/releases/download/v3.10.0/openagentd-3.10.0-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "73ff8a3d8c696a54094391d3e3ff2fbc001aee8d8789937d397c50aa246d8dfc"
+    url "https://github.com/lthoangg/openagentd/releases/download/v3.11.0/openagentd-3.11.0-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "e774b415d7a56b2c09d23c89eb97f352f4b71df588da4ff289e77979d58c1cbc"
   end
 
   def install
