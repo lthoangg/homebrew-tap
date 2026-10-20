@@ -1,19 +1,19 @@
 class Openagentd < Formula
   desc "Local coding agent server and CLI"
   homepage "https://openagentd.dev"
-  version "3.21.0"
+  version "3.22.0"
   license "Apache-2.0"
 
   on_macos do
     depends_on arch: :arm64
-    url "https://github.com/lthoangg/openagentd/releases/download/v3.21.0/openagentd-3.21.0-aarch64-apple-darwin.tar.gz"
-    sha256 "0dba1dbdadf158b6b50f1e62f00226216b616eb6c46ee43c696febbb21519d45"
+    url "https://github.com/lthoangg/openagentd/releases/download/v3.22.0/openagentd-3.22.0-aarch64-apple-darwin.tar.gz"
+    sha256 "c63ac8b4f5960f04b47b360085376950d57b77e731f76f57d8d397e426ef0e55"
   end
 
   on_linux do
     depends_on arch: :x86_64
-    url "https://github.com/lthoangg/openagentd/releases/download/v3.21.0/openagentd-3.21.0-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "2e11494bc14de19c8a863cc0061039ca69b654ea851b4611c7ebb357c7c3b595"
+    url "https://github.com/lthoangg/openagentd/releases/download/v3.22.0/openagentd-3.22.0-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "25413a1a476006afac1d5bd07f94f5b6dc3aefdeb454be114e3ce0f6d42560cf"
   end
 
   def install
@@ -25,7 +25,7 @@ class Openagentd < Formula
   def caveats
     <<~EOS
       Run `agentd --help` to get started, or see
-      https://github.com/lthoangg/openagentd for documentation.
+      https://openagentd.dev for setup guides.
       Upgrade with `brew upgrade openagentd` (`agentd upgrade` does this too).
     EOS
   end
