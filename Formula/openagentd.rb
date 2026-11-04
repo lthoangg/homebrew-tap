@@ -1,19 +1,19 @@
 class Openagentd < Formula
   desc "Local coding agent server and CLI"
   homepage "https://openagentd.dev"
-  version "3.43.0"
+  version "3.44.0"
   license "Apache-2.0"
 
   on_macos do
     depends_on arch: :arm64
-    url "https://github.com/lthoangg/openagentd/releases/download/v3.43.0/openagentd-3.43.0-aarch64-apple-darwin.tar.gz"
-    sha256 "7751c50ee554dd7a49e66a4f304a06e513615c0792171f00a181bbd2115fbebc"
+    url "https://github.com/lthoangg/openagentd/releases/download/v3.44.0/openagentd-3.44.0-aarch64-apple-darwin.tar.gz"
+    sha256 "fcc1fdc869c306a9d1ae747c4d26d4ed331ee63bb8cab853ebcdba39a291347e"
   end
 
   on_linux do
     depends_on arch: :x86_64
-    url "https://github.com/lthoangg/openagentd/releases/download/v3.43.0/openagentd-3.43.0-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "669b6b88d17032b0973f447eaa20c97a8d1bdeb9c00dd212ba6dc7fb05689ec3"
+    url "https://github.com/lthoangg/openagentd/releases/download/v3.44.0/openagentd-3.44.0-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "00625b31b1ed96eaaeb250424739768c93577e7274b7fb1adb306727e97e6e04"
   end
 
   def install
