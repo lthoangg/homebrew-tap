@@ -1,8 +1,8 @@
 cask "openagentd" do
-  version "3.48.0"
-  sha256 "f5cf4d32ec8b4b773ba003108188d4e666c95af6c2680b2c6596ee9e28769d1e"
+  version "3.49.0"
+  sha256 "1fb598b57d7144f4770e150def483fc5e68a15ba7216a2af7792bb7d60ed9e3a"
 
-  url "https://github.com/lthoangg/openagentd/releases/download/v3.48.0/OpenAgentd_3.48.0_aarch64.dmg"
+  url "https://github.com/lthoangg/openagentd/releases/download/v3.49.0/OpenAgentd_3.49.0_aarch64.dmg"
   name "OpenAgentd"
   desc "Desktop app for a local coding agent you can watch work"
   homepage "https://openagentd.dev"
@@ -27,17 +27,10 @@ cask "openagentd" do
 
   app "OpenAgentd.app"
 
-  # CI signs the app ad hoc (no paid Apple Developer ID). A
-  # downloaded copy carries the quarantine flag, and macOS
-  # rejects it with the "OpenAgentd.app" is damaged error,
-  # so strip the flag, as desktop/scripts/install.sh does.
-  # Do not re-sign: the app keeps CI's signature, the same one
-  # the in-app updater installs.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/OpenAgentd.app"],
-                   must_succeed: false
-  end
+  # The app and DMG are Developer ID signed, notarized and
+  # stapled by release-desktop.yml, so Gatekeeper accepts the
+  # download as is. Stripping the quarantine flag (a post-install hook)
+  # would skip that check, and nothing may re-sign the app.
 
   # Intentionally no zap block. brew uninstall --cask
   # removes the .app and leaves user data (agents, SQLite DB,
@@ -49,11 +42,6 @@ cask "openagentd" do
   # manually — see documents/docs/configuration/paths.md.
 
   caveats <<~EOS
-    OpenAgentd is not signed with a paid Apple Developer ID.
-    The cask removes the download quarantine flag on install,
-    so Gatekeeper should accept it. If macOS still complains,
-    right-click the app in Finder and choose "Open" once.
-
     Apple Silicon only. Intel Mac users: install the CLI with
     "brew install openagentd" instead.
 
