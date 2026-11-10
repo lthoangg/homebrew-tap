@@ -1,8 +1,8 @@
 cask "openagentd" do
-  version "3.50.0"
-  sha256 "3f932956ac15b4a14847c7ca23b13fb743eeff1ff88856cedbc7f29a31933a2a"
+  version "3.51.0"
+  sha256 "f4935a3fd98943eff5b6e26141a7d29a54cbbbfecb6887b40d3491b4ffadc89a"
 
-  url "https://github.com/lthoangg/openagentd/releases/download/v3.50.0/OpenAgentd_3.50.0_aarch64.dmg"
+  url "https://github.com/lthoangg/openagentd/releases/download/v3.51.0/OpenAgentd_3.51.0_aarch64.dmg"
   name "OpenAgentd"
   desc "Desktop app for a local coding agent you can watch work"
   homepage "https://openagentd.dev"
