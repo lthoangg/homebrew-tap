@@ -1,8 +1,8 @@
 cask "openagentd" do
-  version "3.56.0"
-  sha256 "eab01a67df43a4b81c2b19794687cf493b8a29839049c58167320eb5ba84d9c3"
+  version "3.57.0"
+  sha256 "8d60ab71cbc60d10843de56d76e32d1d9deb398dfc2689fc098e3c11433bb74a"
 
-  url "https://github.com/lthoangg/openagentd/releases/download/v3.56.0/OpenAgentd_3.56.0_aarch64.dmg"
+  url "https://github.com/lthoangg/openagentd/releases/download/v3.57.0/OpenAgentd_3.57.0_aarch64.dmg"
   name "OpenAgentd"
   desc "Desktop app for a local coding agent you can watch work"
   homepage "https://openagentd.dev"
@@ -39,7 +39,7 @@ cask "openagentd" do
   # a fresh start. Users who want a full wipe should remove
   # ~/.config/openagentd, ~/.local/share/openagentd*,
   # ~/.local/state/openagentd and ~/.cache/openagentd
-  # manually — see documents/docs/configuration/paths.md.
+  # manually.
 
   caveats <<~EOS
     Apple Silicon only. Intel Mac users: install the CLI with
