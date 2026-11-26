@@ -1,23 +1,23 @@
 class Openagentd < Formula
   desc "Local coding agent server and CLI"
   homepage "https://openagentd.dev"
-  version "3.63.0"
+  version "3.63.1"
   license "Apache-2.0"
 
   on_macos do
     depends_on arch: :arm64
-    url "https://github.com/lthoangg/openagentd/releases/download/v3.63.0/openagentd-3.63.0-aarch64-apple-darwin.tar.gz"
-    sha256 "f6fbc02ff82b5c2c88b60389c7668e100abe4cf0c32137ce390f5df5574f95f5"
+    url "https://github.com/lthoangg/openagentd/releases/download/v3.63.1/openagentd-3.63.1-aarch64-apple-darwin.tar.gz"
+    sha256 "ec13623d1cabf5f98876cd6262d8772ab1b6e411f2a82a3283f142b8a0190ad0"
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/lthoangg/openagentd/releases/download/v3.63.0/openagentd-3.63.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "78d16dffb2d5e40da67f98a338111e7bfe2dd162e5012f31c314629b22e5281f"
+      url "https://github.com/lthoangg/openagentd/releases/download/v3.63.1/openagentd-3.63.1-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "644dbadb721aad7ff422d41870832c40576d173db41f2a277ce61fcffb0e2531"
     end
     on_intel do
-      url "https://github.com/lthoangg/openagentd/releases/download/v3.63.0/openagentd-3.63.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "e7d6259feb1efd0af9baf23113906c39f87d6fceac8ef22eb045336a234ddf5b"
+      url "https://github.com/lthoangg/openagentd/releases/download/v3.63.1/openagentd-3.63.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "460603cdaedc27fd2344cd011226b9f3ceaac9248ece4d1700bf04ed95c41bb6"
     end
   end
 
